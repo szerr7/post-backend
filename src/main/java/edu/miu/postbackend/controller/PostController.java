@@ -2,6 +2,8 @@ package edu.miu.postbackend.controller;
 
 
 
+import edu.miu.postbackend.aspect.anotation.ExceptionExecution;
+import edu.miu.postbackend.aspect.anotation.ExecutionTime;
 import edu.miu.postbackend.domain.Post;
 
 
@@ -30,6 +32,7 @@ public class PostController {
     }
 
 
+    @ExecutionTime
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}") // http://localhost:8080/api/v1/posts/1
     public PostDto getPostById(@PathVariable long id){
@@ -59,6 +62,15 @@ public class PostController {
     @GetMapping("/title/{title}")
     public List<Post> findPostByTitle(@PathVariable String title){
         return postService.findPostByTitle(title) ;
+    }
+
+
+    @ExceptionExecution
+    @PostMapping  ("/exception/{id}")
+    public void  createException(@PathVariable String id) {
+        System.out.println("Exception is thrown");
+
+        throw new NullPointerException("Exception is thrown");
     }
 }
 

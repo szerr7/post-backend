@@ -27,9 +27,8 @@ public class Logger {
 
     public Logger( LocalDate date, LocalTime time, String operation) {
 
-        Date = date;
-        Time = time;
-
-        Operation = operation;
+        this.Date = date;
+        this.Time = time;
+        this.Operation = operation;
     }
 }

@@ -36,8 +36,6 @@ public class ExecutionTimeImpl {
         Logger logger = new Logger(date,time,operation);
         logger.setPrinciple(principle);
         loggerRepository.save(logger);
-
-
         System.out.println(proceedingJoinPoint.getSignature().getName() + " takes ns: " + (finish - start));
         return result;
     }

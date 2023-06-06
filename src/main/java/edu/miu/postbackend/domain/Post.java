@@ -29,4 +29,11 @@ public class Post {
     private List<Comment> comments;
 
 
+    @JsonManagedReference
+    @OneToOne
+    @JoinColumn(name = "userAuth_id")
+    private UserAuth userAuth;
+
+
+
 }
